@@ -1,0 +1,26 @@
+version: "3.8"
+services:
+  db:
+    image: mysql:latest
+    environment:
+      MYSQL_ROOT_PASSWORD: root
+      MYSQL_DATABASE: db_proxy
+    ports:
+      - "3306:3306"
+    networks:
+      - db_proxy_network
+  server:
+    build:
+      context: ../ 
+      dockerfile: docker/Dockerfile
+    depends_on:
+      - db
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./schemas:/app/schemas
+    networks:
+      - db_proxy_network
+
+networks:
+  db_proxy_network:
