@@ -1,6 +1,5 @@
 # Dot.cards Backend technical assessment
-<br>
-<br>
+
 ## General information and structure
 <br> 
 A generic database proxy - that is, a REST API for CRUD on a SQL database - using Typescript and Node.JS. Translates REST language into valid SQL statements using API endpoint handlers, written in Typescript/Node. Used the server framework Express and MySQL. The database proxy implements a system to ingest schema files (JSON files) from a folder named "schemas" inside the root project folder, and builds the database schema based on that on server startup. All the JSON files that you want to be ingested will have to be included inside the "schemas" folder.
